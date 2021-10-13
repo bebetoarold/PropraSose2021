@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>264</y>
+      <w>144</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Learner
+--
+
+billAddress: AddressType
+address: AddressType
+
+--
+ </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>456</y>
+      <w>104</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>IndependantLearner
+--
+bank_data: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>424</x>
+      <y>456</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>SubventionedLearner
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>384</y>
+      <w>56</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>384</y>
+      <w>96</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>104</y>
+      <w>112</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Tutor
+--
+label:String
+bank_data: String
+wage: double/float
+address: AddressType
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>264</y>
+      <w>112</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Subject
+--
+label: String
+max_subventioned: int
+subject_cost: double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1064</x>
+      <y>216</y>
+      <w>112</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>how many hours for a subject pro yeahr</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>912</x>
+      <y>320</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Session
+--
+date: date/datetime
+month: String/int
+duration_session: int 
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>496</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Bill
+--
+date_creation: date
+total_cost: double
+bill_number: String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>256</x>
+      <y>112</y>
+      <w>152</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>AddressType
+--
+zip_code: String
+street: String
+location: String
+home_number: int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>944</x>
+      <y>496</y>
+      <w>136</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>BillPosition
+--
+cost_per_Subject: double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>736</x>
+      <y>520</y>
+      <w>224</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1..*</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;10.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>384</y>
+      <w>32</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>312</y>
+      <w>384</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0;10.0;290.0;460.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>120</y>
+      <w>200</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>288</y>
+      <w>264</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;310.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>712</x>
+      <y>128</y>
+      <w>248</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>944</x>
+      <y>120</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Tutor_Subject
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>168</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>190.0;10.0;190.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>120</y>
+      <w>248</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.&gt;&gt;
+{ tutor.subjects=learner.subjects}</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>464</x>
+      <y>72</y>
+      <w>224</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Note..
+the tutor muss teach all the subjects
+choosen by the learner</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>360</y>
+      <w>464</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=*
+m2=*
+fg=magenta</panel_attributes>
+    <additional_attributes>560.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>296</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>120.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>712</x>
+      <y>160</y>
+      <w>272</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>320.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>568</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Person
+--
+firstname:String
+lastname:String
+kontakt: String
+email: String
+roles :ArrayList&lt;String&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>328</y>
+      <w>336</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>400.0;300.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>200</y>
+      <w>232</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;460.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>608</x>
+      <y>376</y>
+      <w>152</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>realize the role app based 
+control with UNION in the query selection</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>960</x>
+      <y>600</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>test the role just for one
+roles: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

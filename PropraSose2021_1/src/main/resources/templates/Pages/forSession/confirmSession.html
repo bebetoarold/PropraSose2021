@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>update session</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+	
+	<div class="container-fluid">
+    <!-- inclusion menu-->
+ 
+ 		<div th:replace="menu :: mymenu"></div>
+ <hr>
+   <h3> Confirmation for Session </h3>
+   	
+ 	 <form th:action="@{/sessions/confirm}" th:object="${session}"  action="#" method="POST" class="form-control">		
+ 	 		
+ 	 		<div class="row">
+ 	 			 <div class="col-md-3">
+ 	 			  <label for="label"> Label </label></br>	
+ 	 			  <input type="text" name="label" id="label" class="form-control" th:field="*{label}" th:value="${session.label}" required readonly/></br>
+ 	 			  <span th:if="${#fields.hasErrors('label')}" th:errors="*{label}">Label error</span>
+ 	 			 </div>
+ 	 			 
+ 	 			 <div class="col-md-3">
+ 	 			  <label for="id"> ID </label></br>	
+ 	 			  <input type="number" name="id" id="id" class="form-control" th:field="*{id}" th:value="${session.id}" readonly required/></br>
+ 	 			  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID error</span>
+ 	 			 </div>
+ 	 			 
+ 	    	</div>
+ 	 		
+ 	 		<div class="row">	
+ 	 			
+ 	 			<div class="col-md-3">
+ 	 			 <label for="start"> Start date: </label></br>	
+ 	 			 <input type="text" name="start" id="start"  class="form-control" th:field="*{start}" th:value="${session.start}" readonly required/></br>
+ 	 			 <span th:if="${#fields.hasErrors('start')}" th:errors="*{start}">start date error</span>
+ 	 			</div>
+ 	 			
+ 	 			
+ 	 		    <div class="col-offset-1 col-md-3">
+ 	 			  <label for="end"> End date: </label>
+ 	 			  <input type="text" name="end" id="end" class="form-control" th:field="*{end}" th:value="${session.end}" readonly required/></br>
+ 	 			   <span th:if="${#fields.hasErrors('end')}" th:errors="*{end}">end date  error</span>
+ 	 		    </div>
+ 	 		</div>
+ 	 		<div class="row my-2">
+ 	 		        <fieldset class="form-group row col-md-8 ">
+ 	 	                 <legend> Participants</legend>
+ 	 	           <hr>	
+ 	 	              <div class="col-md-5">	
+ 	 		   
+			 	 			<label for="participants" >learners(* choose participants):</label></br>
+			 	 			<select  type="text" name="participants" id="participants" class="form-control" th:field="*{participants}" multiple>
+			 		 			<option th:value="${null}">choose one--</option>
+			 		 			<option th:each="learner: ${listLearners}" th:value="${learner.id}" th:text="|${learner.lastname}:  ${learner.mailAddress} |">optionxx</option>
+			 	 			</select>
+			 	 		   
+			 	 	    </div>
+			 	 	    <div class="col-offset-1 col-md-5" th:if="${session.participants}">	
+			 	 		   
+			 	 			<label for="cur_participants"  >Current participants for the session</label></br>
+			 	 			<select  type="text" name="cur_participants" id="cur_participants" class="form-control">
+			 		 			<option th:each="learner: ${session.participants}"  th:text="| ${learner.lastname}:  ${learner.mailAddress} |">optionxx</option>
+			 	 			</select>
+				 	 	    
+			 	 	     </div>
+			 	 	     <div  class="col-offset-1 col-md-5" th:if="${ #lists.isEmpty(session.participants)}">
+				 	 	    <p> <pan>No participants yet</pan></p>
+				 	 	 
+				 	 	 </div>
+ 	 	    
+ 	 				</fieldset>
+ 	 		</div>
+ 	 		
+ 	 		
+ 	 		   <input type="submit" name="submit" class="d-flex justify-content-center btn btn-primary "/>
+ 	 		
+ 	 	  
+ 	 		
+ 	</form>   
+   </div>
+
+ 
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.1/cjs/popper.min.js"
+        integrity="sha256-T3bYsIPyOLpEfeZOX4M7J59ZoDMzuYFUsPiSN3Xcc2M=" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+	
+</body>
+</html>

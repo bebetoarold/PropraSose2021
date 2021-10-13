@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>my View in my area</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+	
+	<div class="container-fluid">
+    <!-- inclusion menu-->
+ 
+ 		<div th:replace="menu :: mymenu"></div>
+ <hr>
+   <h3> View of tutor </h3>
+   <p th:text="${message}"></p>
+ 	 
+ 	<div class="row">
+		 	<fieldset class="col-md-8 form-group">
+ 	 		    <legend> My infos</legend>
+ 	 		    <hr> 	
+		 	 		
+		 	 		<div class="row">
+		 	 			 <div class="col-md-3">
+		 	 			  <label for="firstname"> The tutor's firstname </label></br>	
+		 	 			  <p class="form-control" th:text="${tutor.firstname}"></p>
+		 	 			 </div>
+		 	 			 
+		 	 			 <div class="col-offset-1 col-md-3">
+		 	 			  <label for="lastname"> The tutor's lastname </label></br>	
+		 	 			  <p class="form-control" th:text="${tutor.lastname}"></p>
+		 	 			 </div>
+		 	 			 
+		 	 			 <div class="col-offset-1 col-md-3">
+		 	 			  <label for="lastname"> The tutor's Street </label></br>	
+		 	 			  <p class="form-control" th:text="${tutor.address.street}"></p>
+		 	 			 </div>
+		 	 		
+		 	 		</div>
+		 	 		<div class="row">
+		 	 			<div class="col-md-3">
+		 	 			 <label for="contact"> The tutor's contact </label></br>	
+		 	 			 <p class="form-control" th:text="${tutor.contact}"></p>
+		 	 			</div>
+		 	 			
+		 	 			<div class="col-offset-1 col-md-3">
+		 	 			 <label > The tutor's mail address </label></br>	
+		 	 			 <p class="form-control" th:text="${tutor.mailAddress}"></p> 
+		 	 			</div>
+		 	 			 <div class="col-offset-1 col-md-3">
+		 	 			  <label > The tutor's Location </label></br>	
+		 	 			  <p class="form-control" th:text="${tutor.address.location}"></p>
+		 	 			 </div>
+		 	 			
+		 	 		</div>
+		 	 		<div class="row">	
+		 	 			
+		 	 			<div class="col-md-3">
+		 	 			 <label for="wage"> The tutor's payement pro hour </label></br>	
+		 	 			 <p class="form-control" th:text="${tutor.wage}" ></p>
+		 	 			</div>
+		 	 			
+		 	 			<div class="col-offset-1 col-md-3">
+		 	 			<label for="t_label"> The tutor's surname </label></br>	
+		 	 			<p  class="form-control" th:text="${tutor.tutorLabel}"></p>
+		 	 			</div>
+		 	 			
+		 	 			 <div class="col-offset-1 col-md-2">
+		 	 			  <label for="lastname">  Zipcode </label></br>	
+		 	 			  <p class="form-control" th:text="${tutor.address.zipCode}"></p>
+		 	 			 </div>
+		 	 			 
+		 	 		</div>
+		 	 		<div class="row">	
+		 	 		
+		 	 		   <div class=" col-md-6">
+		 	 			<label for="bank_data"> The tutor's bank data/IBAN </label></br>	
+		 	 			<p class="form-control" th:text="${tutor.bankData}"</p>
+		 	 		   </div>	
+		 	 			
+		 	 		   <div class=" col-md-2">
+		 	 			  <label for="lastname">  HomeNumber </label></br>	
+		 	 			  <p class="form-control" th:text="${tutor.address.homeNumber}"></p>
+		 	 			 </div>
+		 	 		
+		 	 	   </div>	
+		 	 </fieldset>
+ 	 	<div class="col-md-3 ">
+			<fieldset class="form-group ">
+	 	 	  <legend> my Subjects</legend>
+	 	 	  <hr>	
+	 	 	    <div th:if="${not #lists.isEmpty(tutor.mySubjects)}">	
+	 	 		   
+	 	 			<label >Subjects</label></br>
+	 	 			<div class="form-control" >
+	 		 			<p th:each="subjectItem: ${tutor.mySubjects}"  th:text="${subjectItem.label}">option1</p>
+	 	 			</div>
+	 	 		   
+	 	 	    </div>
+	 	 	    <div th:if="${ #lists.isEmpty(tutor.mySubjects)}">
+	 	 	    <p> <pan>No subjects linked yet please</pan> <a th:href="@{/tutors/myArea/link}">link here</a></p>
+	 	 	    </div>
+	 	 	</fieldset>
+	 	 	<fieldset class="form-group ">
+	 	 	  <legend> my Students</legend>
+	 	 	  <hr>	
+	 	 	    <div th:if="${not #lists.isEmpty(tutor.mySubjects)}">	
+	 	 		   
+	 	 			<label >Students</label></br>
+	 	 			<div class="form-control" th:each="subject: ${tutor.mySubjects}">
+	 		 			<!--p th:each="Item: ${learner.myTutors}"  th:text="| ${Item.tutorLabel} : ${Item.mailAddress}">option1</p-->
+	 		 			<div th:if="${subject.learning}" th:each="learner: ${subject.learning}"><p  th:text="| ${learner.mailAddress}|"></p></div>
+	 		 			<p th:unless="${subject.learning}"></p>
+	 	 			</div>
+	 	 		   
+	 	 	    </div>
+	 	 	    <div th:if="${ #lists.isEmpty(tutor.mySubjects)}">
+	 	 	    <p> <pan>No students linked !!</pan></p>
+	 	 	    </div>
+	 	 	</fieldset>
+	 	<div>
+ 	</div>
+ 
+   </div>
+
+ 
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.1/cjs/popper.min.js"
+        integrity="sha256-T3bYsIPyOLpEfeZOX4M7J59ZoDMzuYFUsPiSN3Xcc2M=" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+
+<header th:fragment="mymenu">
+	<div> 
+	</br>
+	<h1>#Braingain Institut for the Promotion of Learning</h1>
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary " >
+  
+			      <div class="navbar-nav" >
+			        <a class="nav-link" th:href="@{/}">Home</a>
+			        <div sec:authorize="hasAnyAuthority('ADMIN')" class="d-flex">
+			           <a class="nav-link" th:href="@{/admins}">Admins</a>
+			           <a class="nav-link" th:href="@{/learners}">learners</a>
+			           <a class="nav-link" th:href="@{/tutors}">Tutors</a>
+			           <a class="nav-link" th:href="@{/admins/myArea}">My Area (Admin)</a>
+			           <a class="nav-link" th:href="@{/subjects}">Subjects</a>
+			           <a class="nav-link" th:href="@{/roles}">Roles</a>
+			           <a class="nav-link" th:href="@{/statistics}">Statistics</a>
+			        </div>
+			         <div sec:authorize="hasAnyAuthority('ADMIN','TUTOR','LEARNER')" class="d-flex">
+			         	
+			         	<a class="nav-link" th:href="@{/sessions}">Sessions</a>
+			         	<a class="nav-link" th:href="@{/payments}">Payements&Bill</a>
+			         	
+			         </div>
+			          
+                     <div sec:authorize="hasAnyAuthority('TUTOR')" class="d-flex"> 
+                     	<a class="nav-link" th:href="@{/tutors}">Tutors</a>
+                       <a class="nav-link" th:href="@{/tutors/myArea}">My Area(Tutor)</a>
+                       <a class="nav-link" th:href="@{/learners}">learners</a>
+                       
+                     </div>
+			         <div sec:authorize="hasAnyAuthority('LEARNER')" class="d-flex">
+			           <a class="nav-link" th:href="@{/learners/myArea}">My Area(Learner)</a> 
+			           <a class="nav-link" th:href="@{/tutors}">Tutors</a>
+			         
+			         </div> 
+			         <div sec:authorize="isAuthenticated()">
+			         	<a class="nav-link" th:href="@{/logout}">Log out</a>
+			         </div>
+			         <div sec:authorize="isAnonymous()">
+			         	<a class="nav-link" th:href="@{/login}">Log in</a>
+			         </div>             
+			        		        
+			      </div>
+	
+     </nav>
+   
+</header>

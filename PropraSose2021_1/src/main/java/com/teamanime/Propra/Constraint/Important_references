@@ -1,0 +1,29 @@
+
+Here are the different resources used to build the application such as the sites consulted.
+
+https://www.codejava.net/frameworks/spring-boot/spring-boot-form-validation-tutorial
+https://dzone.com/articles/spring-boot-custom-password-validator-using-passay
+*https://github.com/anicetkeric/custom-password-validation/blob/master/src/main/java/com/passay/--
+--sample/custompasswordvalidation/annotation/PasswordValueMatch.java
+*https://github.com/thombergs/code-examples/tree/master/spring-boot/validation/src/main/java/io/reflectoring/--
+--validation/controller/controlleradvice
+*https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/redirect-attributes.html
+*https://stackoverflow.com/questions/19583540/spring-data-jpa-no-property-found-for-type-exception
+
+https://thorben-janssen.com/ultimate-guide-derived-queries-with-spring-data-jpa/ (IMPORTANT ++++)
+https://www.javaguides.net/2018/09/spring-boot-spring-mvc-role-based-spring-security-jpa-thymeleaf-mysql-tutorial.html
+https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
+https://www.objectdb.com/java/jpa/persistence/metamodel
+
+https://thorben-janssen.com/ultimate-guide-association-mappings-jpa-hibernate/
+https://www.baeldung.com/spring-security-registration-password-encoding-bcrypt
+https://spring.io/guides/gs/validating-form-input/
+https://www.joda.org/joda-time/key_period.html
+https://www.baeldung.com/java-year-month-day
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+https://www.thymeleaf.org/documentation.html
+https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#dates
+https://thorben-janssen.com/spring-data-jpa-query-projections/
+https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
+
+https://www.vogella.com/tutorials/SpringBoot/article.html (FOR REST APPS)

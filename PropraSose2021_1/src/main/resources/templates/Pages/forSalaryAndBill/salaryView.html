@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>view Salary /kind overview</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+	
+	<div class="container-fluid">
+	
+    <!-- inclusion menu-->
+ 
+ 		<div th:replace="menu :: mymenu"></div>
+   
+   <hr>
+    
+    <!--section body-->
+    
+    	 <h2>Salary overview </h2>
+    	 <hr>
+   <p th:text="${message}"></p>
+   <section class="row" th:object="${salary}">
+    	<aside class="col-md-3 border">
+    	<p th:text="|for: ${salary.owner.lastname} ${salary.owner.firstname}|"></p>
+    	<p th:text="|Email: ${salary.owner.mailAddress}|"></p>
+    	<p th:text="|IBAN: ${salary.owner.bankData}|"></p>
+    	<p th:text="|date: ${salary.since}|"></p>
+    	<p th:text="|No Item: ${salary.label}|"></p>
+    	</aside>
+    	<div class="col-md-9">
+          <table class="table-bordered table-striped table">
+          	<thead
+               <tr>
+               	  <th>Session ID</th>
+                  <th>Participants</th>
+                  <th>Duration</th>
+                  <th>payment</th>
+                  <th>Total</th>
+               </tr>
+            </thead>
+               <tr th:each="sessionItem : ${salary.sessions}">
+		        <td th:text="${sessionItem.id}"></td>
+		        <td th:each="learner: ${sessionItem.participants}" class="d-flex flex-row"><span th:text="${learner.firstname}"><span></td>
+		        <td th:text="|${sessionItem.duration} hours|"></td>
+		        <td th:text="|${salary.owner.wage}" euro per hours|></td>
+		        <td th:text="|${salary.owner.wage*sessionItem.duration} euro|">total</td>
+               </tr>
+          </table>
+         <p th:text="| total salary: ${salary.total} Euro|"></p>
+    	</div>
+    </section>
+   
+   <hr>
+    
+   <!-- inclusion footer-->
+   <div th:replace="footer :: copy_footer"></div>
+  
+</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.1/cjs/popper.min.js"
+        integrity="sha256-T3bYsIPyOLpEfeZOX4M7J59ZoDMzuYFUsPiSN3Xcc2M=" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+	
+</body>
+</html>
