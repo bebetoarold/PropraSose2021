@@ -45,6 +45,7 @@ public class UserDataLoader implements CommandLineRunner {
 			Admin admin =new Admin();
 			admin.setMailAddress("admin@gmail.com");
 			admin.setFirstname("admin");
+			admin.setPassword("admin");
 			admin.setLastname("admin_lastname");
 			admin.setBankData("DE12345678910121314151");
 			admin.setContact("004917669417431");
